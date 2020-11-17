@@ -17,3 +17,7 @@ Imports:
     tidyr,
     ggplot2
 Depends: R (>= 3.1.0)
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

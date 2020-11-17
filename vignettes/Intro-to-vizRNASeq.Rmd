@@ -1,0 +1,42 @@
+---
+title: "Intro-to-vizRNASeq"
+output: rmarkdown::html_vignette
+author: "Bianca Pokhrel"
+vignette: >
+  %\VignetteIndexEntry{Intro-to-vizRNASeq}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(vizRNASeq)
+```
+
+## Introduction
+
+*vizRNASeq* is an R package that vizRNASeq is an R package that allows users to perform an exploratory analysis of RNASeq data and visualize their data through cluster analysis and heatmaps.
+
+Use `help(package = "vizRNASeq")` for further details and references provided. To download *CellTyPETool*, use the following commands:
+
+``` r
+require("devtools")
+devtools::install_github("bianca-pokhrel/vizRNASeq", build_vignettes = TRUE)
+library("vizRNASeq")
+```
+To list all functions available in the package including functions from dependencies:
+
+``` r
+lsf.str("package:vizRNASeq")
+```
+
+## Usage
+
+
+## References
