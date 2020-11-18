@@ -6,9 +6,9 @@ The goal of vizRNASeq is to allow scientists to various ways to analyze RNASeq d
 Scientists can apply these methods to visualize clusters of genes to allow for progression of research into
 different diseases such as Alzheimer’s or cancer.
 Currently, Bioconductor has a workflow of an end to end gene level RNA-seq differential expression workflow
-using their packages [1]. This is different from what I am proposing as I will be creating a single package that
+using their packages [1]. vizRNASeq creates a single package that
 will not be producing their workflow but a small section of it for visualization. Although similar packages
-exist that do far more complex analysis, I will be performing a basic analysis
+exist that do far more complex analysis, this is a basic analysis
 
 ## Installation
 
