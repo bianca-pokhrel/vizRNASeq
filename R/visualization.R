@@ -16,6 +16,10 @@
 #' @import DESeq2
 #' @import pheatmap
 #' @import ggplot2
+#' @import grDevices
+#' @import graphics
+#' @import stats
+#' @import utils
 #'
 #' @references
 #'

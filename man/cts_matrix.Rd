@@ -21,6 +21,9 @@ Data package with per-exon and per-gene read counts of RNA-seq samples of
 Pasilla knock-down by Brooks et al., Genome Research 2011.
 }
 \references{
-
+Wolfgang Huber and Alejandro Reyes (2020). pasilla: Data
+package with per-exon and per-gene read counts of RNA-seq
+samples of Pasilla knock-down by Brooks et al., Genome
+Research 2011.. R package version 1.18.0.
 }
 \keyword{datasets}

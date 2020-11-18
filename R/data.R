@@ -10,9 +10,11 @@
 #'     \item{Columns 1, 2, 3}{Treated samples}
 #'     \item{Columns 4, 5, 6, 7}{Untreated samples}
 #' }
-#'
 #' @references
-#'
+#' Wolfgang Huber and Alejandro Reyes (2020). pasilla: Data
+#' package with per-exon and per-gene read counts of RNA-seq
+#' samples of Pasilla knock-down by Brooks et al., Genome
+#' Research 2011.. R package version 1.18.0.
 "cts_matrix"
 
 
@@ -30,3 +32,8 @@
 #'     \item{Columns 2}{Type}
 #' }
 "sample_info"
+
+#' This data is for testing purposes in preprocessing
+#'
+#' @format A DESeqDataSet object
+"DE_convert"

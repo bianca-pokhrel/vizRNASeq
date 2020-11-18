@@ -72,6 +72,7 @@ mat_conversion <- function(RNA_count_data, sample_info_data) {
   # run the DE pipeline from bioconductor
   DE_convert <- DESeq(DE_convert)
 
+
   return(DE_convert)
 
 }
