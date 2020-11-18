@@ -4,14 +4,12 @@
 \alias{mat_conversion}
 \title{Converts a count matrix and table of sample information to a DESeqDataSet object.}
 \usage{
-mat_conversion(RNA_count_data, sample_info_data, relationship)
+mat_conversion(RNA_count_data, sample_info_data)
 }
 \arguments{
 \item{RNA_count_data}{A matrix with each row representing gene, and each column is a sequenced RNA library.Values are estimated counts.}
 
 \item{sample_info_data}{A table of sample information that has metadata on count table columns}
-
-\item{relationship}{A vector containing variable names for formula to express how the counts for each gene depend on variables. Formatted (group, condition) respectively.}
 }
 \value{
 A DESeqDataSet object for cluster analysis
@@ -20,4 +18,12 @@ A DESeqDataSet object for cluster analysis
 A function that uses the DESeq pipeline to convert a count matrix and table of sample.
 This is for preprocessing the data to get it ready for cluster analysis. Additionally, as of present release,
 this function performs conversion of matrix with multiple variables- ~ group + condition
+}
+\examples{
+
+ # Example 1:
+ # Using pasilla dataset available with package
+
+ mat_conversion <- mat_conversion(cts_matrix, sample_info)
+
 }
