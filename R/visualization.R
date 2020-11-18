@@ -53,13 +53,13 @@ base_plots <- function(DE_seq_obj, gene_name, group_over, result_table) {
          aes(x = group_over[1],
              y = group_over[2],
              color = group_over[1])) +
-    scale_y_log10() + geome_point(size = 5) + geom_line()
+    scale_y_log10() + geom_point(size = 5) + geom_line()
 
   ggplot(gCount,
          aes(x = group_over[1],
              y = group_over[2],
              color = group_over[2])) +
-    scale_y_log10() + geome_point(size = 5) + geom_line()
+    scale_y_log10() + geom_point(size = 5) + geom_line()
 
   # to create histogram and heatmap of p-values if results is supplied (happens after pipeline is run)
 
@@ -68,6 +68,6 @@ base_plots <- function(DE_seq_obj, gene_name, group_over, result_table) {
          breaks = 0:20/20,
          col = "pink", border = "white")
 
-    pheatmap(cor(result_table), col = colors)
+    pheatmap(cor(result_table), color = colors)
   }
 }

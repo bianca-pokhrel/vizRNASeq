@@ -10,10 +10,41 @@ reg_norm_res(DE_convert)
 \item{DE_convert}{A DESeqDataSet object}
 }
 \value{
-A vector containing both log2 and variance stabilized log2 transformed data as DESeqDataSet objects.
+A variance stabilized log2 transformed data as DESeqDataSet objects.
 }
 \description{
 A function that takes in a DESeqDataSet and builds a result table which can be used
 to perform cluster analysis. This function is helpful if already using Bioconductor workflow
  and already have a DESeqDataSet object.
+}
+\examples{
+# Example 1:
+# Using pasilla dataset available with package
+
+ DE_convert <- DESeqDataSetFromMatrix(
+         countData = cts_matrix,
+                  colData = sample_info,
+                        design = ~ condition)
+
+   info_rows <- rowSums(counts(DE_convert)) > 1
+      DE_convert <- DE_convert[info_rows,]
+         DE_convert <- DESeq(DE_convert)
+
+          reg_norm_res <- reg_norm_res(DE_convert)
+
+
+}
+\references{
+Wolfgang Huber and Alejandro Reyes (2020). pasilla: Data
+package with per-exon and per-gene read counts of RNA-seq
+samples of Pasilla knock-down by Brooks et al., Genome
+Research 2011.. R package version 1.18.0.
+
+Michael I. Love, S. (2020, October 27). Analyzing RNA-seq data with DESeq2.
+Retrieved November 18, 2020,
+from http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html
+
+Love, M.I., Huber, W., Anders, S. Moderated estimation of
+fold change and dispersion for RNA-seq data with DESeq2
+Genome Biology 15(12):550 (2014)
 }

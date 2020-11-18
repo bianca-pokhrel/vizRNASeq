@@ -21,3 +21,21 @@ A function that uses the DESeq pipeline to convert a count matrix and table of s
 This is for preprocessing the data to get it ready for cluster analysis. Additionally, as of present release,
 this function performs conversion of matrix with multiple variables- ~ group + condition
 }
+\references{
+R Core Team (2020). R: A language and environment for statistical computing.
+R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
+
+
+Wolfgang Huber and Alejandro Reyes (2020). pasilla: Data
+package with per-exon and per-gene read counts of RNA-seq
+samples of Pasilla knock-down by Brooks et al., Genome
+Research 2011.. R package version 1.18.0.
+
+Michael I. Love, S. (2020, October 27). Analyzing RNA-seq data with DESeq2.
+Retrieved November 18, 2020,
+from http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html
+
+Love, M.I., Huber, W., Anders, S. Moderated estimation of
+fold change and dispersion for RNA-seq data with DESeq2
+Genome Biology 15(12):550 (2014)
+}
