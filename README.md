@@ -30,6 +30,8 @@ lsf.str("package:vizRNASeq")
 
 The main components of the package are the pre-processing and the visualization. The pre-processing is made up of 2 functions currently- the conversion of a count matrix to a DESeqDataSet object and the compiling of its respective results. The visualization function is made up of one function that prints preliminary plots of the DESeqDataSet object. An image is included for reference.
 
+![](./inst/extdata/overview_vizRNASeq.jpg)
+
 ``` r
 browseVignettes("vizRNASeq")
 ```
