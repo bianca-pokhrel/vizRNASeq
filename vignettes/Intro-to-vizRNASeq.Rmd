@@ -36,8 +36,6 @@ To list all functions available in the package including functions from dependen
 lsf.str("package:vizRNASeq")
 ```
 
-## Usage
-
 
 ## References
 
