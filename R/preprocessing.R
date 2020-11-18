@@ -29,6 +29,21 @@
 #'
 #'  mat_conversion <- mat_conversion(cts_matrix, sample_info)
 #'
+#' @references
+#'
+#' Wolfgang Huber and Alejandro Reyes (2020). pasilla: Data
+#' package with per-exon and per-gene read counts of RNA-seq
+#' samples of Pasilla knock-down by Brooks et al., Genome
+#' Research 2011.. R package version 1.18.0.
+#'
+#' Michael I. Love, S. (2020, October 27). Analyzing RNA-seq data with DESeq2.
+#' Retrieved November 18, 2020,
+#' from http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html
+#'
+#' Love, M.I., Huber, W., Anders, S. Moderated estimation of
+#' fold change and dispersion for RNA-seq data with DESeq2
+#' Genome Biology 15(12):550 (2014)
+#'
 #' @export
 #' @import DESeq2
 #' @import dplyr
@@ -91,6 +106,22 @@ mat_conversion <- function(RNA_count_data, sample_info_data) {
 #'          DE_convert <- DESeq(DE_convert)
 #'
 #'           reg_norm_res <- reg_norm_res(DE_convert)
+#'
+#'
+#' @references
+#'
+#' Wolfgang Huber and Alejandro Reyes (2020). pasilla: Data
+#' package with per-exon and per-gene read counts of RNA-seq
+#' samples of Pasilla knock-down by Brooks et al., Genome
+#' Research 2011.. R package version 1.18.0.
+#'
+#' Michael I. Love, S. (2020, October 27). Analyzing RNA-seq data with DESeq2.
+#' Retrieved November 18, 2020,
+#' from http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html
+#'
+#' Love, M.I., Huber, W., Anders, S. Moderated estimation of
+#' fold change and dispersion for RNA-seq data with DESeq2
+#' Genome Biology 15(12):550 (2014)
 #'
 #'
 #' @export
