@@ -20,7 +20,9 @@ devtools::install_github("bianca-pokhrel/vizRNASeq", build_vignettes = TRUE)
 library("vizRNASeq")
 ```
 To run shinyApp:
-
+``` r
+runApp('inst/shiny-scripts')
+```
 
 ## Overview
 
