@@ -127,9 +127,11 @@ cluster_map <- function(typeCluster, DESeqObj, numClust){
 
 
   # first need to convert DESeqObj into a DGEList and use edgeR, then normalizing data so we can cluster!
+  # following is from edgeR
   dge = as.DGEList(DESeqObj)
   y <- calcNormFactors(dge)
   z <- cpm(dge, normalized.lib.size=TRUE)
+
   scaledata <- t(scale(t(z)))
 
   if (numClust < 1 | numClust > 10)
@@ -157,10 +159,10 @@ cluster_map <- function(typeCluster, DESeqObj, numClust){
     return(plot1)
 
   }
-  else if (typeCluster == "km"){
+  else{
     #plot a k-means cluster
 
-    set.seed(20)
+    set.seed(416)
     clusts <- kmeans(scaledata, centers=numClust, nstart = 1000, iter.max = 20)
     clusters <- clust$cluster
 
