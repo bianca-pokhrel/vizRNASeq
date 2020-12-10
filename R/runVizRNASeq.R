@@ -1,6 +1,6 @@
-#' Launch Shiny App for CellTyPETool
+#' Launch Shiny App for vizRNASeq
 #'
-#' A function that launches the Shiny app for CellTyPETool
+#' A function that launches the Shiny app for vizRNASeq
 #' The purpose of this app is
 #'
 #' @return No return value but open up a Shiny page.

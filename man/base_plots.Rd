@@ -25,7 +25,6 @@ this function performs conversion of matrix with multiple variables- ~ group + c
 R Core Team (2020). R: A language and environment for statistical computing.
 R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
 
-
 Wolfgang Huber and Alejandro Reyes (2020). pasilla: Data
 package with per-exon and per-gene read counts of RNA-seq
 samples of Pasilla knock-down by Brooks et al., Genome

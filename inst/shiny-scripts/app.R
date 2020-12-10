@@ -5,7 +5,7 @@ load("../../data/sample_info.rda")
 load("../../data/DE_convert.rda")
 
 ui <- fluidPage(
-  titlePanel("Visualization of CLustering Methods"),
+  titlePanel("Visualization of Clustering Methods"),
 
   sidebarLayout(
     sidebarPanel(
@@ -32,7 +32,7 @@ ui <- fluidPage(
 server <- function(input, output) {
   output$Cluster <- renderPlot({
     data <- switch(input$var,
-                   "Hierarchal CLustering (heatmap)" = "hier",
+                   "Hierarchal Clustering (heatmap)" = "hier",
                    "K-means Clustering" = "km"
                    )
 

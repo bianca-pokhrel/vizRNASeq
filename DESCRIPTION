@@ -1,7 +1,7 @@
 Package: vizRNASeq
 Type: Package
 Title: Visualization of RNASeq Data
-Version: 0.1.0
+Version: 0.1.1
 Author: Bianca Pokhrel
 Maintainer: Bianca Pokhrel <bianca.pokhrel@mail.utoronto.ca>
 Description: More about what it does (maybe more than one line)
@@ -15,10 +15,16 @@ Imports:
     dplyr,
     pheatmap,
     tidyr,
-    ggplot2
+    ggplot2,
+    rmarkdown,
+    DEFormats,
+    edgeR,
+    gplots,
+    reshape,
+    shiny,
+    testthat,
+    knitr
 Depends: R (>= 3.1.0)
 Suggests: 
-    knitr,
-    rmarkdown,
-    testthat
 VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)

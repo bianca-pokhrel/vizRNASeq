@@ -22,7 +22,6 @@ an option to change the number of clusters
 R Core Team (2020). R: A language and environment for statistical computing.
 R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
 
-
 Wolfgang Huber and Alejandro Reyes (2020). pasilla: Data
 package with per-exon and per-gene read counts of RNA-seq
 samples of Pasilla knock-down by Brooks et al., Genome
@@ -35,4 +34,10 @@ from http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq
 Love, M.I., Huber, W., Anders, S. Moderated estimation of
 fold change and dispersion for RNA-seq data with DESeq2
 Genome Biology 15(12):550 (2014)
+
+Warner, J. (n.d.). BitBio. Retrieved December 10, 2020,
+from https://2-bitbio.com/2017/10/clustering-rnaseq-data-using-k-means.html
+
+Andrzej Oleś (2020). DEFormats: Differential gene expression data formats converter. R package version
+1.18.0. https://github.com/aoles/DEFormats
 }

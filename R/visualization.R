@@ -87,13 +87,13 @@ base_plots <- function(DE_seq_obj, gene_name, group_over, result_table) {
 #'
 #'
 #' @export
+#'
 #' @import DESeq2
-#' @import pheatmap
 #' @import edgeR
 #' @import graphics
 #' @import stats
-#' @import utils
 #' @import reshape
+#' @import gplots
 #' @import DEFormats
 #'
 #' @references
@@ -115,21 +115,31 @@ base_plots <- function(DE_seq_obj, gene_name, group_over, result_table) {
 #' fold change and dispersion for RNA-seq data with DESeq2
 #' Genome Biology 15(12):550 (2014)
 #'
+#' Warner, J. (n.d.). BitBio. Retrieved December 10, 2020,
+#' from https://2-bitbio.com/2017/10/clustering-rnaseq-data-using-k-means.html
+#'
+#'  Andrzej Oleś (2020). DEFormats: Differential gene expression data formats converter. R package version
+#'  1.18.0. https://github.com/aoles/DEFormats
 cluster_map <- function(typeCluster, DESeqObj, numClust){
 
-  # get results table and normalize variance
-  vst_res <- reg_norm_res(DESeqObj)
 
-  if (typeCluster == 'hier'){
+  # first need to convert DESeqObj into a DGEList and use edgeR, then normalizing data so we can cluster!
+  dge = as.DGEList(DESeqObj)
+  y <- calcNormFactors(dge)
+  z <- cpm(dge, normalized.lib.size=TRUE)
+  scaledata <- t(scale(t(z)))
+
+  if (numClust < 1 | numClust > 10)
+    return (NULL)
+  if (typeCluster == "hier"){
     #plot a hierarchal cluster
 
-    scaledata <- t(scale(t(z))) # Centers and scales data.
     scaledata <- scaledata[complete.cases(scaledata),]
 
     hr <- hclust(as.dist(1-cor(t(scaledata), method="pearson")), method="complete") # Cluster rows by Pearson correlation.
     hc <- hclust(as.dist(1-cor(scaledata, method="spearman")), method="complete") # Clusters columns by Spearman correlation.
 
-    heatmap.2(z,
+    plot1 <- heatmap.2(z,
               Rowv=as.dendrogram(hr),
               Colv=as.dendrogram(hc),
               col=redgreen(100),
@@ -140,16 +150,11 @@ cluster_map <- function(typeCluster, DESeqObj, numClust){
               main = "Heatmap.2",
               trace = "none")
 
+    return(plot1)
+
   }
-  else{
+  else if (typeCluster == "km"){
     #plot a k-means cluster
-
-    # first need to convert DESeqObj into a DGEList and use edgeR
-    dge = as.DGEList(DESeqObj)
-    y <- calcNormFactors(dge)
-    z <- cpm(dge, normalized.lib.size=TRUE)
-
-    scaledata <- t(scale(t(z))) # Centers and scales data.
 
     set.seed(20)
     kClust <- kmeans(scaledata, centers=numClust, nstart = 1000, iter.max = 20)
@@ -170,10 +175,7 @@ cluster_map <- function(typeCluster, DESeqObj, numClust){
     return(p1)
 
   }
-
-
 }
-
 
 clust.centroid = function(i, dat, clusters) {
   ind = (clusters == i)

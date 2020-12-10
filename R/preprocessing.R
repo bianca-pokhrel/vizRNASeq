@@ -96,17 +96,7 @@ mat_conversion <- function(RNA_count_data, sample_info_data) {
 #' @examples
 #' # Example 1:
 #'# Using pasilla dataset available with package
-#'
-#'  DE_convert <- DESeqDataSetFromMatrix(
-#'          countData = cts_matrix,
-#'                   colData = sample_info,
-#'                         design = ~ condition)
-#'
-#'    info_rows <- rowSums(counts(DE_convert)) > 1
-#'       DE_convert <- DE_convert[info_rows,]
-#'          DE_convert <- DESeq(DE_convert)
-#'
-#'           reg_norm_res <- reg_norm_res(DE_convert)
+#'  reg_norm_res <- reg_norm_res(DE_convert)
 #'
 #'
 #' @references

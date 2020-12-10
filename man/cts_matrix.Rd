@@ -8,8 +8,8 @@
 A matrix with each row representing gene, and each column is a
 sequenced RNA library. Values are estimated counts.
 \describe{
-    \item{Columns 1, 2, 3}{Treated samples}
-    \item{Columns 4, 5, 6, 7}{Untreated samples}
+\item{Columns 1, 2, 3}{Treated samples}
+\item{Columns 4, 5, 6, 7}{Untreated samples}
 }
 }
 \usage{

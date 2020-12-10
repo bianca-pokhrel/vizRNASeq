@@ -2,7 +2,7 @@
 % Please edit documentation in R/runVizRNASeq.R
 \name{runVizRNASeq}
 \alias{runVizRNASeq}
-\title{Launch Shiny App for CellTyPETool}
+\title{Launch Shiny App for vizRNASeq}
 \usage{
 runVizRNASeq()
 }
@@ -10,7 +10,7 @@ runVizRNASeq()
 No return value but open up a Shiny page.
 }
 \description{
-A function that launches the Shiny app for CellTyPETool
+A function that launches the Shiny app for vizRNASeq
 The purpose of this app is
 }
 \examples{

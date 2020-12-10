@@ -15,22 +15,12 @@ A variance stabilized log2 transformed data as DESeqDataSet objects.
 \description{
 A function that takes in a DESeqDataSet and builds a result table which can be used
 to perform cluster analysis. This function is helpful if already using Bioconductor workflow
- and already have a DESeqDataSet object.
+and already have a DESeqDataSet object.
 }
 \examples{
 # Example 1:
 # Using pasilla dataset available with package
-
- DE_convert <- DESeqDataSetFromMatrix(
-         countData = cts_matrix,
-                  colData = sample_info,
-                        design = ~ condition)
-
-   info_rows <- rowSums(counts(DE_convert)) > 1
-      DE_convert <- DE_convert[info_rows,]
-         DE_convert <- DESeq(DE_convert)
-
-          reg_norm_res <- reg_norm_res(DE_convert)
+ reg_norm_res <- reg_norm_res(DE_convert)
 
 
 }
