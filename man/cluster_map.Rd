@@ -2,21 +2,28 @@
 % Please edit documentation in R/visualization.R
 \name{cluster_map}
 \alias{cluster_map}
-\title{Simple cluster visualizations of RNASeq data from a DESeqDataSet object for shinyApp}
+\title{Simple cluster visualizations of RNASeq data from a DESeqDataSet object. Standalone or interactive through ShinyApp}
 \usage{
 cluster_map(typeCluster, DESeqObj, numClust)
 }
 \arguments{
-\item{typeCluster}{either "hier" for hierarchal clustering or "km" for k-means clustering}
+\item{typeCluster}{either "hier" for hierarchical clustering or "km" for k-means clustering}
 
 \item{DESeqObj}{DESeqDataSet object to use for clustering}
 
-\item{numClust}{number of clusters for k-means cluster modelling}
+\item{numClust}{number of clusters for k-means cluster modeling}
+}
+\value{
+a plot that is either a heatmap for hierarchical clustering or for k-means clustering
 }
 \description{
-A function that uses a DESeqDataSet objec to product beautiful visualizations of clustering with the option of either
-hierarchal clustering or clustering by k-means. The default setting is hierarchal. For k-means clustering, there is also
+A function that uses a DESeqDataSet object to produce beautiful visualizations of clustering with the option of either
+hierarchal clustering or clustering by k-means. The default setting is hierarchical. For k-means clustering, there is also
 an option to change the number of clusters
+}
+\examples{
+# To be used with the Pasilla dataset provided
+cluster_map<- cluster_map(typeCluster ="km",DESeqObj = DE_convert, numClust = 4)
 }
 \references{
 R Core Team (2020). R: A language and environment for statistical computing.

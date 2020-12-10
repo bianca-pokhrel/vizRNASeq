@@ -52,6 +52,10 @@ This function is a few short lines combining the workflow from Bioconductor's DE
 
 This function compiles a few graphs for exploratory analysis from Bioconductor's DESeq2 package. It takes the workflow and runs most basic plots. Additionally, it uses ggplot2 and tidyverse
 
+### cluster_map
+
+This function creates plots for hierarchical and k-means clusters. It requires a DESeqDataSet object which can be generated using other functions available in this package. Additionally, it uses ggplot2, reshape to produce these plots which can then be accessed using the ShinyApp. See the shinyapp for a demonstration using the Pasilla dataset
+
 ## References
 
 H. Wickham. Reshaping data with the reshape package. Journal of Statistical Software, 21(12), 2007.
@@ -74,6 +78,12 @@ from http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq
 Love, M.I., Huber, W., Anders, S. Moderated estimation of
 fold change and dispersion for RNA-seq data with DESeq2
 Genome Biology 15(12):550 (2014)
+
+Warner, J. (n.d.). BitBio. Retrieved December 10, 2020,
+from https://2-bitbio.com/2017/10/clustering-rnaseq-data-using-k-means.html
+
+Andrzej Oleś (2020). DEFormats: Differential gene expression data formats converter. R package version
+1.18.0. https://github.com/aoles/DEFormats
 
 ## Acknowledgements
 

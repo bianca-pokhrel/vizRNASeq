@@ -75,17 +75,20 @@ base_plots <- function(DE_seq_obj, gene_name, group_over, result_table) {
 }
 
 
-#' Simple cluster visualizations of RNASeq data from a DESeqDataSet object for shinyApp
+#' Simple cluster visualizations of RNASeq data from a DESeqDataSet object. Standalone or interactive through ShinyApp
 #'
-#' A function that uses a DESeqDataSet objec to product beautiful visualizations of clustering with the option of either
-#' hierarchal clustering or clustering by k-means. The default setting is hierarchal. For k-means clustering, there is also
+#' A function that uses a DESeqDataSet object to produce beautiful visualizations of clustering with the option of either
+#' hierarchal clustering or clustering by k-means. The default setting is hierarchical. For k-means clustering, there is also
 #' an option to change the number of clusters
 #'
-#' @param typeCluster either "hier" for hierarchal clustering or "km" for k-means clustering
+#' @param typeCluster either "hier" for hierarchical clustering or "km" for k-means clustering
 #' @param DESeqObj DESeqDataSet object to use for clustering
-#' @param numClust number of clusters for k-means cluster modelling
+#' @param numClust number of clusters for k-means cluster modeling
+#' @return a plot that is either a heatmap for hierarchical clustering or for k-means clustering
 #'
-#'
+#' @examples
+#' # To be used with the Pasilla dataset provided
+#' cluster_map<- cluster_map(typeCluster ="km",DESeqObj = DE_convert, numClust = 4)
 #' @export
 #'
 #' @import DESeq2
@@ -136,12 +139,13 @@ cluster_map <- function(typeCluster, DESeqObj, numClust){
 
     scaledata <- scaledata[complete.cases(scaledata),]
 
-    hr <- hclust(as.dist(1-cor(t(scaledata), method="pearson")), method="complete") # Cluster rows by Pearson correlation.
-    hc <- hclust(as.dist(1-cor(scaledata, method="spearman")), method="complete") # Clusters columns by Spearman correlation.
+    hier_rows <- hclust(as.dist(1-cor(t(scaledata), method="pearson")), method="complete") # Cluster rows by Pearson correlation.
+    hier_cols <- hclust(as.dist(1-cor(scaledata, method="spearman")), method="complete") # Clusters columns by Spearman correlation.
 
+    # heatmap generated using BitBio reference: https://2-bitbio.com/2017/04/clustering-rnaseq-data-making-heatmaps.html
     plot1 <- heatmap.2(z,
-              Rowv=as.dendrogram(hr),
-              Colv=as.dendrogram(hc),
+              Rowv=as.dendrogram(hier_rows),
+              Colv=as.dendrogram(hier_cols),
               col=redgreen(100),
               scale="row",
               margins = c(7, 7),
@@ -157,26 +161,27 @@ cluster_map <- function(typeCluster, DESeqObj, numClust){
     #plot a k-means cluster
 
     set.seed(20)
-    kClust <- kmeans(scaledata, centers=numClust, nstart = 1000, iter.max = 20)
-    kClusters <- kClust$cluster
+    clusts <- kmeans(scaledata, centers=numClust, nstart = 1000, iter.max = 20)
+    clusters <- clust$cluster
 
-    kClustcentroids <- sapply(levels(factor(kClusters)), clust.centroid, scaledata, kClusters)
+    clustcent <- sapply(levels(factor(clusters)), clust.centroid, scaledata, clusters)
 
-    Kmolten <- melt(kClustcentroids)
-    colnames(Kmolten) <- c('sample','cluster','value')
+    clustViz <- melt(clustcent)
+    colnames(clustViz) <- c('sample','cluster','value')
 
     #plot
-    p1 <- ggplot(Kmolten, aes(x=sample,y=value, group=cluster, colour=as.factor(cluster))) +
+    kmeansPlot <- ggplot(clustViz, aes(x=sample,y=value, group=cluster, colour=as.factor(cluster))) +
       geom_point() +
       geom_line() +
-      xlab("Time") +
+      xlab("Sample") +
       ylab("Expression") +
       labs(title= "Cluster Expression",color = "Cluster")
-    return(p1)
+    return(kmeansPlot)
 
   }
 }
 
+# small function to get the centroids for clusters- see BitBio reference
 clust.centroid = function(i, dat, clusters) {
   ind = (clusters == i)
   colMeans(dat[ind,])

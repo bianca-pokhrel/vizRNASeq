@@ -8,7 +8,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r, include = FALSE, warning=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -36,6 +36,27 @@ To list all functions available in the package including functions from dependen
 lsf.str("package:vizRNASeq")
 ```
 
+## Instructions for Use
+
+To run the mat-conversion function, simply have a count matrix and sample info dataframe to generate a DESeqDataSet object.
+
+Example (using Pasilla dataset given as an example dataset in the package):
+
+``` r
+mat_conversion(cts_matrix, sample_info)
+```
+
+To run the reg-norm-res function, simply have a DESeqDataSet object as input to generate a variance stabilized dataset in the form of a DESeqDataSet object
+
+``` r
+reg_norm_res(DE_convert)
+```
+
+To run the cluster-map function, simply have a DESeqDataSet object as input to generate either a heatmap for hierarchical clustering or a visualization for k-means clustering where typeCluster can either be "hier" or "km" for hierarchical or k-means respectively and numClust is the number of clusters to generate which can range from 1-10. 
+
+``` r
+cluster_map(typeCluster ="km",DESeqObj = DE_convert, numClust = 4)
+```
 
 ## References
 
@@ -59,3 +80,9 @@ from http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq
 Love, M.I., Huber, W., Anders, S. Moderated estimation of
 fold change and dispersion for RNA-seq data with DESeq2
 Genome Biology 15(12):550 (2014)
+
+Warner, J. (n.d.). BitBio. Retrieved December 10, 2020,
+from https://2-bitbio.com/2017/10/clustering-rnaseq-data-using-k-means.html
+
+Andrzej Oleś (2020). DEFormats: Differential gene expression data formats converter. R package version
+1.18.0. https://github.com/aoles/DEFormats
